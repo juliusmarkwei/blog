@@ -1,3 +1,4 @@
 venv/
 core/settings.py
 .coverage
+blog_api_db
