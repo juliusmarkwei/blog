@@ -1,10 +1,14 @@
 from django.urls import path
-from django.views.generic import TemplateView
 from rest_framework.routers import DefaultRouter
+from .views import HomeView
 
 app_name = "blog"
 
-router = DefaultRouter()
-router.register("", TemplateView, basename="post")
+# router = DefaultRouter()
+# router.register("", HomeView, basename="home")
 
-urlpatterns = router.urls
+# urlpatterns = router.urls
+
+urlpatterns = [
+    path("", HomeView.as_view(), name="home"),
+]
