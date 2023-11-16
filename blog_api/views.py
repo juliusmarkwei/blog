@@ -19,8 +19,8 @@ class PostUserWritePermission(BasePermission):
         return obj.author == request.user
 
 
-class PostList(viewsets.ModelViewSet):
-    permission_classes = [IsAuthenticated]
+class PostList(viewsets.ModelViewSet, PostUserWritePermission):
+    permission_classes = [PostUserWritePermission]
     serializer_class = PostSerializer
 
     def get_object(self, queryset=None, **kwargs):
