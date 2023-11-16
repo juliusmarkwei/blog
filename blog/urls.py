@@ -1,8 +1,10 @@
 from django.urls import path
 from django.views.generic import TemplateView
+from rest_framework.routers import DefaultRouter
 
-app_name = 'blog'
+app_name = "blog"
 
-urlpatterns = [
-    path('', TemplateView.as_view(template_name="blog/index.html")),
-]
+router = DefaultRouter()
+router.register("", TemplateView, basename="post")
+
+urlpatterns = router.urls
