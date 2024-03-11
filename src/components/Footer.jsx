@@ -1,9 +1,9 @@
 import React from "react";
 
-function Footer() {
+function Footer({ length }) {
     return (
         <footer className="footer-container">
-            <div>Copyright &copy; 2024</div>
+            <div>{length} List {length === 1  ? 'item' : 'items'}</div>
         </footer>
     );
 }
