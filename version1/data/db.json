@@ -1,24 +1,29 @@
 {
-    "items": [
-        {
-            "id": 1,
-            "checked": false,
-            "item": "Almonds flour"
-        },
-        {
-            "id": 2,
-            "checked": false,
-            "item": "Coconut flour"
-        },
-        {
-            "id": 3,
-            "checked": false,
-            "item": "Flaxseed meal"
-        },
-        {
-            "id": 4,
-            "checked": false,
-            "item": "Chia seeds"
-        }
-    ]
+  "items": [
+    {
+      "id": "1",
+      "checked": false,
+      "item": "Almonds flour"
+    },
+    {
+      "id": "3",
+      "checked": false,
+      "item": "Flaxseed meal"
+    },
+    {
+      "id": "4",
+      "checked": false,
+      "item": "Chia seeds"
+    },
+    {
+      "id": "5",
+      "checked": false,
+      "item": "Orange"
+    },
+    {
+      "id": 5,
+      "checked": false,
+      "item": "Book"
+    }
+  ]
 }
