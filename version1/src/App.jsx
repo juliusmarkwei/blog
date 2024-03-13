@@ -4,35 +4,78 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import AddItem from "./components/AddItem";
 import SearchItem from "./components/SearchItem";
+import apiRequest from "./utils/apiRequest";
 
 function App() {
-    const [items, setItems] = useState(
-        JSON.parse(localStorage.getItem("shoppingList")) || []
-    );
+    const API_URL = "http://localhost:3500/items";
+
+    const [items, setItems] = useState([]);
     const [search, setSearch] = useState("");
     const [newItem, setNewItem] = useState("");
+    const [fetchError, setFetchError] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        localStorage.setItem("shoppingList", JSON.stringify(items));
-    }, [items]);
+        const fetchItems = async () => {
+            try {
+                const response = await fetch(API_URL);
+                if (!response.ok) throw Error("Did not received expected data");
+                const listItems = await response.json();
+                setItems(listItems);
+                setFetchError(null);
+            } catch (err) {
+                setFetchError(err.message);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+        setTimeout(() => {
+            (async () => await fetchItems())();
+        }, 2000);
+    }, []);
 
-    const addItem = (item) => {
+    const addItem = async (item) => {
         const id = items.length + 1;
-        const newItem = { id, item, checked: false };
+        const newItem = { id, checked: false, item };
         const listItems = [...items, newItem];
         setItems(listItems);
+
+        const postOptions = {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(newItem),
+        };
+        const result = await apiRequest(API_URL, postOptions);
+        if (result) setFetchError(result);
     };
 
-    const handleChekBox = (index) => {
+    const handleChekBox = async (id) => {
+        console.log(id);
         const listItems = items.map((item, i) =>
-            i === index ? { ...item, checked: !item.checked } : item
+            i === id ? { ...item, checked: !item.checked } : item
         );
         setItems(listItems);
+
+        const myItem = listItems.filter((_, i) => i === id);
+        console.log(myItem);
+        const updateOptions = {
+            method: "PATCH",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ checked: myItem[0].checked }),
+        };
+        const result = await apiRequest(`${API_URL}/${id + 1}`, updateOptions);
+        if (result) setFetchError(result);
     };
 
-    const handleDelete = (index) => {
-        const listItems = items.filter((_, i) => i !== index);
+    const handleDelete = async (id) => {
+        const listItems = items.filter((_, i) => i !== id);
         setItems(listItems);
+
+        const deleteOptions = {
+            method: "DELETE",
+        };
+        const result = await apiRequest(`${API_URL}/${id + 1}`, deleteOptions);
+        if (result) setFetchError(result);
     };
 
     const handleSubmit = (e) => {
@@ -51,13 +94,25 @@ function App() {
                 handleSubmit={handleSubmit}
             />
             <SearchItem search={search} setSearch={setSearch} />
-            <Content
-                items={items.filter((item) =>
-                    item.item.toLowerCase().includes(search.toLowerCase())
+            <main>
+                {isLoading && <p>Loading Items...</p>}
+                {fetchError && (
+                    <p
+                        style={{ color: "red", width: "200px", height: "20px" }}
+                    >{`Error: ${fetchError}`}</p>
                 )}
-                handleChekBox={handleChekBox}
-                handleDelete={handleDelete}
-            />
+                {!fetchError && !isLoading && (
+                    <Content
+                        items={items.filter((item) =>
+                            item.item
+                                .toLowerCase()
+                                .includes(search.toLowerCase())
+                        )}
+                        handleChekBox={handleChekBox}
+                        handleDelete={handleDelete}
+                    />
+                )}
+            </main>
             <Footer length={items.length} />
         </>
     );
