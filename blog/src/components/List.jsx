@@ -3,8 +3,8 @@ import ListItem from './ListItem'
 function List({items}) {
     return (
         <ul>
-            {items.map((item, index) => (
-                <ListItem item={item} index={index} />
+            {items.map((item) => (
+                <ListItem item={item} key={item.id} />
             ))}
         </ul>
     );

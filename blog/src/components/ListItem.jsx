@@ -1,9 +1,7 @@
 import React from "react";
 
-function ListItem({item, index}) {
-    return (
-        <li key={index}>{item}</li>
-    );
+function ListItem({ item }) {
+    return <li>{JSON.stringify(item)}</li>;
 }
 
 export default ListItem;
