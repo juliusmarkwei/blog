@@ -1,12 +1,12 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import Form from "./components/Form";
-import List from "./components/ListItem";
+import List from "./components/List";
+import Table from "./components/Table";
 
 function App() {
     const API_URL = "https://jsonplaceholder.typicode.com";
     const [reqType, setReqType] = useState('users');
-    const [isLoading, setIsLoading] = useState(true);
     const [items, setItems] = useState([]);
 
     useEffect(() => {
@@ -22,8 +22,6 @@ function App() {
                 setItems(userData);
             } catch (error) {
                 console.error("Error:", error);
-            } finally {
-                setIsLoading(false);
             }
         };
         fetchUsers();
@@ -32,7 +30,10 @@ function App() {
     return (
         <>
             <Form reqType={reqType} setReqType={setReqType} />
-            {isLoading ? <p>Loading Data...</p> : <List items={items} />}
+            <main>
+                {/* <List items={items} /> */}
+                <Table items={items} />
+            </main>
         </>
     );
 }
