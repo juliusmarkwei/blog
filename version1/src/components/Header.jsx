@@ -1,15 +1,7 @@
 import React from "react";
 
-function Header({ title }) {
-    return (
-        <header>
-            <h1>{title}</h1>
-        </header>
-    );
-}
-
-Header.defaultProps = {
-    title: 'Default List'
-}
+const Header = ({ title }) => {
+    return <h2 className="blog-title">{title}</h2>;
+};
 
 export default Header;
