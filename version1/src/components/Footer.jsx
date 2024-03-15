@@ -2,9 +2,11 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <div>
-      Footer
-    </div>
+    <>
+      <h3 className='Footer'>
+        Copyright &copy; 2024
+      </h3>
+    </>
   )
 }
 

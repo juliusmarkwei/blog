@@ -1,7 +1,13 @@
-import React from "react";
+import Post from "./Post";
 
-const Feed = () => {
-    return <div>Feed</div>;
+const Feed = ({ posts }) => {
+    return (
+        <article>
+            {posts.map((post) => (
+                <Post post={post} key={post.id} />
+            ))}
+        </article>
+    );
 };
 
 export default Feed;
