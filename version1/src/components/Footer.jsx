@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react'
 
-function Footer({ length }) {
-    return (
-        <footer className="footer-container">
-            <div>{length} List {length === 1  ? 'item' : 'items'}</div>
-        </footer>
-    );
+const Footer = () => {
+  return (
+    <div>
+      Footer
+    </div>
+  )
 }
 
-export default Footer;
+export default Footer
