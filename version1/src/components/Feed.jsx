@@ -3,7 +3,7 @@ import Post from "./Post";
 const Feed = ({ posts }) => {
     return (
         <article>
-            {posts.map((post) => (
+            {posts.map((post, index) => (
                 <Post post={post} key={post.id} />
             ))}
         </article>
