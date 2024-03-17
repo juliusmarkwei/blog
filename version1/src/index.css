@@ -61,6 +61,7 @@ Nav > ul > li {
 
 Nav > ul li:hover {
     background-color: rgb(14, 126, 246);
+    transition: 0.25s ease;
 }
 
 a {
@@ -128,3 +129,24 @@ main {
     flex-direction: column;
 }
 
+.editButton, .deleteButton {
+    width: 100px;
+    height: 40px;
+    margin-right: 10px;
+    margin-top: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.editButton {
+    background-color: rgb(14, 126, 246);
+    color: white;
+}
+
+.deleteButton {
+    background-color: red;
+    color: white;
+}
