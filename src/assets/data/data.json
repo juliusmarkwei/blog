@@ -1,0 +1,64 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "datetime": "10/12/2051",
+      "title": "A new year update",
+      "body": "Graph development entirely softly differ also east appropriate ready amount produce too cloth ball cut merely simple path human mud mile laid least perfectly"
+    },
+    {
+      "id": "3",
+      "datetime": "5/11/2115",
+      "title": "The afficacy of the united Nation",
+      "body": "Dust remove offer total treated fallen alphabet sick say structure crack car high phrase farm bark mighty are special arrangement laugh include blow accept"
+    },
+    {
+      "id": "4",
+      "datetime": "1/17/2024",
+      "title": "Trending news in the new tech",
+      "body": "Send effort foot establish nothing visitor does engineer everyone upward raw say successful arrive shelf constantly disease process rabbit right sick weight pleasant wish"
+    },
+    {
+      "id": "7",
+      "datetime": "17/March/2024",
+      "title": "Bad internet",
+      "body": "The internet disruption of Africa"
+    },
+    {
+      "id": "8",
+      "datetime": "18/March/2024",
+      "title": "To override the display: flex; property in CSS",
+      "body": "In this example, the original CSS sets the display property of .element to flex. To override it, you simply define a new CSS rule for .element with a different value for the display property, such as block.\nAnother content here.\n\nKeep in mind that CSS specificity and the order of CSS rules matter. If you're having trouble overriding a particular style, ensure that your new CSS rule has the appropriate specificity or is defined later in the CSS file than the original rule."
+    },
+    {
+      "id": "9",
+      "datetime": "18/March/2024",
+      "title": "In CSS, the difference between Nav > h2 and Nav h3",
+      "body": "In CSS, the difference between `Nav > h2` and `Nav h3` lies in how they target elements based on their relationship in the HTML document structure:\n\n1. **`Nav > h2`**:\n   - This selector targets `<h2>` elements that are direct children of elements with the class `Nav`.\n   - It selects `<h2>` elements that are immediate children of the `.Nav` element, and it won't select `<h2>` elements that are nested further down the hierarchy.\n\n   Example HTML:\n   ```html\n   <nav class=\"Nav\">\n       <h2>This is directly targeted</h2>\n       <div>\n           <h2>This is not targeted</h2>\n       </div>\n   </nav>\n   ```\n\n   In this case, the first `<h2>` element would be selected because it's a direct child of the `.Nav` element.\n\n2. **`Nav h3`**:\n   - This selector targets `<h3>` elements that are descendants of elements with the class `Nav`.\n   - It selects `<h3>` elements at any level of nesting within the `.Nav` element, regardless of their depth in the HTML hierarchy.\n\n   Example HTML:\n   ```html\n   <nav class=\"Nav\">\n       <h3>This is targeted</h3>\n       <div>\n           <h3>This is also targeted</h3>\n       </div>\n   </nav>\n   ```\n\n   In this case, both `<h3>` elements would be selected because they are descendants of the `.Nav` element.\n\nIn summary, `Nav > h2` targets direct children `<h2>` elements of `.Nav`, while `Nav h3` targets all descendant `<h3>` elements of `.Nav`, regardless of their level of nesting."
+    },
+    {
+      "id": "10",
+      "datetime": "18/March/2024 6:27:48 AM",
+      "title": "The test case is failing because the logic for handling the \"GET_NEXT\"",
+      "body": "\nThe test case is failing because the logic for handling the \"GET_NEXT\" queries doesn't consider the scenario where there's no number greater than the target. When there's no number greater than the target, the code should append an empty string '' to the container. However, in your current implementation, you're only appending the number if it's greater than the target, but not appending '' if there's no such number.\n\nTo fix this, you should append '' to the container if no number greater than the target is found in the GET_NEXT block. Here's the corrected implementation:"
+    },
+    {
+      "id": "11",
+      "datetime": "18/March/2024 6:46:02 AM",
+      "title": "The issue in the code lies with the appended flag.",
+      "body": "Since it's declared outside the loop, it retains its value across iterations of the loop, leading to incorrect behavior in subsequent iterations. To fix this, you need to reset appended to False at the start of each iteration of the loop. Here's the corrected code:"
+    },
+    {
+      "id": "12",
+      "datetime": "18/March/2024 6:47:54 AM",
+      "title": "The issue in the code lies with the appended flag.",
+      "body": "Since it's declared outside the loop, it retains its value across iterations of the loop, leading to incorrect behavior in subsequent iterations. To fix this, you need to reset appended to False at the start of each iteration of the loop. Here's the corrected code"
+    },
+    {
+      "id": "13",
+      "datetime": "18/March/2024 7:02:50 AM",
+      "title": "Testing post",
+      "body": "Yay"
+    }
+  ]
+}
